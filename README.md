@@ -1,7 +1,7 @@
-#smart-contract-publishing
+# smart-contract-publishing
 
-##Setup
-###node.js
+## Setup
+### node.js
 You must have node.js installed for this project. Please download node.js from [here](https://nodejs.org/en/download/).
 
 Once node has been installed run the following command to initialize the project workspace.
@@ -12,26 +12,26 @@ npm i
 
 This will examine `package.json` and install the packages specified in the `dependencies` and the `devDependencies` directives.
 
-###Parity
+### Parity
 This project was written with the expectation that you would be using Parity for your Ethereum node software. No worries if that is not the case. All that is actually necessary is you are running an ethereum node (network independent), meaning either Geth or Parity are acceptable.
 
 The primary way this expectation expresses itself is in scripts in the bin directory. `./bin/run_dev_network.sh` and `./bin/run_ropsten_network.sh` both assume you are using parity and run a parity node with some helpful flags enabled to facilitate easy contract deployment. Similar options exist for Geth, so it would be possible to port the run scripts for Geth.
 
 You can download the latest Parity release from [here](https://github.com/paritytech/parity/releases).
 
-###Solidity
+### Solidity
 To compile the included smart contracts you will need to have a Solidity compiler installed. Please follow [these instructions](http://solidity.readthedocs.io/en/v0.4.21/installing-solidity.html) to install `solc`.
 
 Solidity version 0.4.21 or higher is required.
 
-##Usage
-###Assumptions
+## Usage
+### Assumptions
 * Default websocket port (8546) for parity is being used. If this is not the case the target host:port will have to be updated in `src/index.js`.
 * If connected to Roptsten or any other non-dev network, the node will need access to a funded Ether account.
 * The specified account must be unlocked. The scripts in `./bin/` demonstrate how to unlock accounts when starting your Parity node.
 
-###Dev network
-For you first attempt at deploying a contract I suggest you deploy to a dev network. This is easy to do because Parity is kind in offering the `--config dev` flag. This starts a local development chain with a variety of useful features, the most of important of which being:
+### Dev network
+For your first attempt at deploying a contract I suggest you deploy to a dev network. This is easy to do because Parity is kind in offering the `--config dev` flag. This starts a local development chain with a variety of useful features, the most of important of which being:
 * InstantSeal engine - In other words the node will automatically mine any transaction submitted to it.
 * A funded ETH address at public key `0x00a329c0648769a73afac7f9381e08fb43dbea72`
 
@@ -64,7 +64,7 @@ Hopefully at this point, all has gone well and you will see output indicating th
 
 Congratulations! You've just deployed your smart contract to your local dev network!
 
-###Ropsten or other networks
+### Ropsten or other networks
 Once you've deployed to your dev network, you should give deploying to Ropsten, Rinkeby or another dev network a shot. The deployment process can be quite different when your transactions are not mined immediately as they are in dev.
 
 To do this, you can run the `run_ropsten_network.sh` script in the `./bin/` directory. This script requires a bit more input and preparation on your part before it is useful, though. The steps required of you are:
