@@ -22,7 +22,9 @@ function deployContract(transaction, gasAmount) {
         .on('receipt', function(receipt) {
             console.log("Transaction receipt received. Contract is located at address: " + receipt.contractAddress);
             console.log(receipt);
+            console.log("");
             console.log("Exiting...");
+            console.log("");
             process.exit();
         })
         .on('error', function(error, receipt) {
@@ -50,6 +52,7 @@ if (!compiledContractExists()) {
     console.error("Compile using the following command:");
     console.error("    solc --bin --abi -o target contracts/Adoption.sol");
     console.error("Exiting...");
+    console.error("");
     process.exit(1);
 }
 

@@ -46,8 +46,9 @@ If you're on a Unix machine (i.e. Ubuntu, OSX, etc), then you can run the `run_d
 Once your node is running, ensure that the node project is configured (i.e. packages installed), open a new terminal and run the following:
 
 ```
-npm run publish_contract
+npm run publish_contract -s
 ```
+Note: The `-s` flag is to prevent npm from noisily erroring out when the process exits with a non-zero exit code. If you are for experiencing problems that I don't describe in the README or you don't understand, try removing the flag to get the complete error output from npm.
 
 If this is your first time running that command, the most likely outcome is that it resulted in an error. The error message should be something along the lines of:
 
@@ -83,7 +84,7 @@ Once those steps are completed and your account is funded, start your test chain
 Then, as you did on the dev network, run the `publish_contract` script, though this time with one modification. You need to pass in the address that will be funding the deployement transaction to the script.
 
 ```
-npm run publish_contract <deployment_address>
+npm run publish_contract -s <deployment_address>
 ```
 
 Assuming you've got the abi and the binary available, this script should prepare and send the transaction to deploy the Adoption contract to the test network. The process will be much slower than it was in dev. You've published a contract to a live network, so the transaction needs to propagate to miners and selected by those miners to include in a block. Depending on the miners, this could take a few minutes. Usually, however, after a few seconds you'll see the same output you saw in dev, indicating that the deploy transaction has been mined and that the contract is available at the specified address.
